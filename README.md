@@ -14,6 +14,7 @@ Open a command line in the directory you want to store the code files and run:
 
     git clone https://github.com/HawkEyes-OSINT/TranslaGram.git
     pip install -r requirements.txt
+    mkdir chats
 
 To run the program:
 
