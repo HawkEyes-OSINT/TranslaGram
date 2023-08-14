@@ -61,7 +61,6 @@ class Translator:
             self.payload['text'] = input_text
             response = requests.request("POST", self.url, data=self.payload, headers=self.headers)
             return response.json()['data']['translatedText']
-        except:
-            print('[-] Error occured')
-            print(response.status_code, response.text)
+        except Exception as e:
+            print('[-]', e)
             exit()
