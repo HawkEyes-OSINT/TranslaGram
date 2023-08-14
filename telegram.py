@@ -80,7 +80,10 @@ async def get_messages(client, group_entity):
         for message in messages:
             if message.sender_id:
                 sender = await client.get_entity(message.sender_id)
-                sender_name = sender.username if sender.username else sender.first_name
+                if sender.username:
+                    sender_name = sender.username
+                elif sender.first_name:
+                    sender_name = sender.first_name
             else:
                 sender_name = 'System'
 
