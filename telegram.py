@@ -79,11 +79,14 @@ async def get_messages(client, group_entity):
         print('[!] Translating messages')
         for message in messages:
             if message.sender_id:
-                sender = await client.get_entity(message.sender_id)
-                if sender.username:
-                    sender_name = sender.username
-                elif sender.first_name:
-                    sender_name = sender.first_name
+                try:
+                    sender = await client.get_entity(message.sender_id)
+                    if sender.username:
+                        sender_name = sender.username
+                    elif sender.first_name:
+                        sender_name = sender.first_name
+                except:
+                    sender_name = message.sender_id
             else:
                 sender_name = 'System'
 
